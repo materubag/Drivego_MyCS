@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import "../Styles/Home.css";
 import { BACK_URL } from "../config.js";
 import DefaultImg from "/public/Img_default.jpg";
+
 
 const Home = () => {
   const [vehiculos, setVehiculos] = useState([]);
