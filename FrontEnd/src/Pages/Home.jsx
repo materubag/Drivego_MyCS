@@ -20,6 +20,7 @@ const Home = () => {
         }
       } catch (err) {
         setError("Error al cargar los vehículos. Intente nuevamente.");
+        console.error("Error fetching vehiculos:", err);
       } finally {
         setIsLoading(false);
       }
