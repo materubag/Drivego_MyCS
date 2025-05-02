@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Modal from "../Modals/Login";
 import ModalUser from "../Modals/User";
+import "../Styles/Navbar.css";
 
 const linksCliente = [
   { name: "Home", href: "/home" },
