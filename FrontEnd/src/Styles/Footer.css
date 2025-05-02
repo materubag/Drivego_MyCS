@@ -1,0 +1,96 @@
+.footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 5%;
+    background: #cae8ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    z-index: 100;
+  }
+  
+  .logo {
+    font-size: 50px;
+    color: white;
+    font-weight: 700;
+  }
+  
+  .logo img {
+    height: 120px;
+    width: auto;
+  }
+  .ubicacion {
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      color: #050a30;
+      display: flex;
+  
+      flex-direction: column;
+      padding: 0.5rem 0;
+      margin: 0;
+      }
+  
+  .ubicacion a{
+      display: block;
+      margin: 0.5rem 0;
+      min-height: 2rem;
+      text-decoration: none;
+  }
+  .social-media {
+    font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+  }
+  .social-media a {
+    display: flex;
+    position: center;
+    color: #050a30;
+    text-decoration: none;
+    font-size: 1.6em;
+    margin: 0.5rem 0;
+  }
+  .social-media a i {
+      margin-right: 1rem; 
+    }
+  .social-media a:last-child {
+    margin-right: 0;
+    position: center;
+  }
+  
+  .derechos {
+    color: #050a30;
+    text-align: right;
+    padding: 1rem 0;
+    margin-top: 200px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+  
+    .derechos{
+      text-align: center;
+      min-width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .footer {
+        padding: 1rem;
+    }
+  
+    .ubicacion, .social-media {
+        width: 100%;
+        align-items: center;
+    }
+  
+    .social-media a {
+        justify-content: center;
+    }
+  }
