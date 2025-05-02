@@ -1,0 +1,101 @@
+
+.carusell-container{
+    position: relative;
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    overflow: hidden;
+  }
+  
+  .carusell{
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+  }
+  
+  .carusell-imagen{
+    flex: 0 0 100%;
+    text-align: center;
+    
+  }
+  
+  .carusell-imagen.active{
+    opacity: 1;
+  }
+  .carusell-imagen img{
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+    
+  }
+  .carusell-capt{
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-size: 1.2rem;
+  }
+  .carusell-capt h3{
+    font-size: 2rem;
+  }
+  .carusell-capt p{
+    font-size: 1rem;
+  }
+  .carusell-control{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px; 
+    cursor: pointer;
+  }
+  .carusell-control.prev{
+    font-size: 30px;
+    left: 10px;
+  }
+  .carusell-control.next{
+    font-size: 30px;
+    right: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .carusell-container{
+      max-width: 100%;
+    }
+    .carusell-imagen img{
+      max-height: 400px;
+    }
+    .carusell-capt h3 {
+      font-size: 1.5rem;
+    }
+  
+    .carusell-capt p {
+      font-size: 0.9rem;
+    }
+  
+    .carusell-control {
+      padding: 8px;
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .carusell-imagen img{
+      max-height: 300px;
+    }
+    .carusell-capt h3 {
+      font-size: 1.2rem;
+    }
+  
+    .carusell-capt p {
+      font-size: 0.8rem;
+    }
+  
+    .carusell-control {
+      font-size: 5px;
+      padding: 14px;
+    }
+  }
