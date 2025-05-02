@@ -1,4 +1,6 @@
 import React from 'react'
+import "../Styles/Footer.css";
+
 const Footer = () => {
   return (
    <footer className='footer'>
@@ -7,7 +9,7 @@ const Footer = () => {
       </a>
       <div className='ubicacion'>
        <a>
-        Pagina web dedicada a la venta de carros 
+        Pagina web dedicada a la venta de Vehiculos
        </a>
        <a>
         Ubicacion: Uta
@@ -38,7 +40,7 @@ const Footer = () => {
           Instagram
         </a>
       </div>
-      <p className='derechos'>© 2025 DriveGo. All Rights Reserved.</p> 
+      <p className='derechos'>© 2025 DriveGo. Todos los derechos reservados.</p> 
    </footer>
     
   )
