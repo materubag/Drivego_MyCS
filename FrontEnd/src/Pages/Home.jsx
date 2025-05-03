@@ -24,9 +24,8 @@ const Home = () => {
           setError(data.message || "Error al obtener vehículos.");
         }
       } catch (err) {
-
         setError("Error al cargar los vehículos. Intente nuevamente.");
-      } finally {
+      } finally {git c
         setIsLoading(false);
       }
     };
