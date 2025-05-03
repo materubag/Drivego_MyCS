@@ -1,0 +1,98 @@
+.lugares-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  .lugaresCard{
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow:  0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .lugaresCard img{
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  .lugaresCard h3{
+    font-size: 1.5rem;
+    color: #333333;
+    margin-bottom: 15px;
+  }
+  .lugaresCard p{
+    font-size: 0.9rem;
+    color: #555555;
+    margin: 5px 0;
+    line-height: 1.5;
+  }
+   .lugaresCard p:nth-of-type(1) { /* Dirección */
+     font-weight: 700;
+     color: #2c3e50;
+   }
+
+   .lugaresCard p:nth-of-type(2) { /* Contactos */
+     color: #3498db;
+     font-weight: 500;
+   }
+
+   .lugaresCard p:nth-of-type(3) { /* Email */
+    font-weight: 500;
+     color: #2980b9;
+   }
+
+   .lugaresCard p:nth-of-type(4) { /* Descripción */
+     font-style: normal;
+     color: #333333;
+   }
+
+   .lugaresCard-horario{
+      font-family:'Roboto', sans-serif;
+      padding: 10px;
+      gap: 10px;
+      background-color: #f8f9fa;
+      padding: 0.8rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      border-left: 3px solid #007bff;
+   }
+
+
+  .lugaresCard:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  /* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+  .card h3 {
+    font-size: 1rem;
+  }
+
+  .card p {
+    font-size: 0.85rem;
+  }
+
+  .card button {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .card img {
+    margin-bottom: 10px;
+  }
+}
