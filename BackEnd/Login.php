@@ -1,6 +1,6 @@
 <?php
 include_once 'config.php'; 
-include_once 'db.php';
+include_once 'bd.php';
 header("Access-Control-Allow-Origin: ".FRONT_URL);
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 $input = json_decode(file_get_contents('php://input'), true); 
 
 if(isset($input['correo_usuario'])&& isset($input['contrasena'])){
-   $correo_usuario=$input['corrreo_usuario'];
+   $correo_usuario=$input['correo_usuario'];
    $contrasena = $input['contrasena'];
 
    try {
