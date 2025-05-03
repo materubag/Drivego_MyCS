@@ -49,7 +49,7 @@ const Home = () => {
           <div className="ofertas">
             {vehiculos.map((vehiculo, index) => (
               <article key={index} className="oferta">
-                <div className="oferta-img">
+                <div className="oferta-imag">
                   <img
                     src={`${BACK_URL}/${vehiculo.img_veh || DefaultImg}`}
                     alt={`${vehiculo.mar_veh} ${vehiculo.mod_veh}`}
