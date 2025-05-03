@@ -1,4 +1,6 @@
 
 /FrontEnd/node_modules
+/FrontEnd/config.js
 /BackEnd/bd.php
+/BackEnd/config.php
 

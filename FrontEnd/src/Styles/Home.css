@@ -28,20 +28,23 @@
     transform: translateY(-5px);
   }
   
-  .oferta-imag {
+
+  .oferta-img {
     width: 100%;
     height: 200px;
     overflow: hidden;
   }
   
-  .oferta-imag img {
+
+  .oferta-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
   }
   
-  .oferta-imag img:hover {
+
+  .oferta-img img:hover {
     transform: scale(1.05);
   }
   
@@ -98,7 +101,8 @@
       grid-template-columns: 1fr;
     }
   
-    .oferta-imag {
+
+    .oferta-img {
       height: 180px;
     }
   
