@@ -15,11 +15,11 @@ const InfoVehiculo = ({ vehiculo, onClose }) => {
     }
   }, []);
 
-  const handleReservar = () => {
+  const handleVenta = () => {
     if (!userInfo) {
       setShowLoginModal(true);
     } else {
-      alert("Función de reserva deshabilitada temporalmente.");
+      alert("Función de venta deshabilitada temporalmente.");
     }
   };
 
@@ -86,8 +86,8 @@ const InfoVehiculo = ({ vehiculo, onClose }) => {
           </p>
         </div>
         <div className="modal-buttons">
-          <button className="alquilar-button" onClick={handleReservar}>
-            RESERVAR
+          <button className="alquilar-button" onClick={handleVenta}>
+            Comprar
           </button>
           <button className="close-button" onClick={onClose}>
             CERRAR
