@@ -126,4 +126,4 @@ const Registro_adm = ({ closeModal }) => {
   );
 };
 
-export default Registro_adm;
+export default Registro_adm;    
