@@ -4,7 +4,7 @@ header("Access-Control-Allow-Origin: " . FRONT_URL);
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
-require('../fpdf/fpdf.php'); 
+require __DIR__ . '/../vendor/autoload.php';
 
 require_once '../bd.php';
 
@@ -56,7 +56,6 @@ $pdf->SetFont('Arial', '', 12);
 $pdf->MultiCell(0, 10, "Conste por el presente documento el contrato de compraventa de vehículo, celebrado entre $nombreUsuario, identificado con número de cédula $cedulaUsuario, a quien en lo sucesivo se denominará EL COMPRADOR; y de otra parte la empresa DRIVE GO con sede en la Universidad Técnica de Ambato, a quien en lo sucesivo se denominará EL VENDEDOR, bajo las siguientes cláusulas:");
 $pdf->Ln(10);
 
-// CLAUSULAS
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(0, 10, 'PRIMERO:', 0, 1, 'L');
 $pdf->SetFont('Arial', '', 12);
@@ -105,11 +104,9 @@ $pdf->SetFont('Arial', '', 12);
 $pdf->MultiCell(0, 10, "Ambas partes declaran estar de acuerdo con lo estipulado y firman el presente documento en señal de aceptación.");
 $pdf->Ln(10);
 
-// Firma
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(0, 10, '___________________________                    ___________________________', 0, 1, 'C');
 $pdf->Cell(0, 10, 'EL VENDEDOR                                                EL COMPRADOR', 0, 1, 'C');
 
-// Mostrar o guardar PDF
 $pdf->Output();
 ?>
