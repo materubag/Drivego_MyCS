@@ -1,4 +1,7 @@
 <?php
+include 'bd.php'; 
+require 'vendor/autoload.php';
+require_once "config.php";  
 header('Content-Type: application/json');
 header("Access-Control-Allow-Origin: " . FRONT_URL);
 header('Access-Control-Allow-Methods: POST, OPTIONS');
@@ -9,8 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(204); 
     exit;
 }
-include 'bd.php'; 
-require 'vendor/autoload.php';
+
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
