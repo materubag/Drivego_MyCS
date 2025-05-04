@@ -5,7 +5,7 @@ import "../Styles/Contactos.css";  // Importación regular de CSS
 const Contactos = () => {
   return (
     <div className="contact-container">
-      {/* Hero Section */}
+      
       <div className="contact-hero">
         <img
           src="/BannerCon.png"
@@ -19,11 +19,11 @@ const Contactos = () => {
         </div>
       </div>
 
-      {/* Main Content */}
+
       <div className="main-content">
-        {/* Introduction Text */}
+        
         <div className="intro-section">
-          <h2 className="main-title">AutoMotors Ecuador</h2>
+          <h2 className="main-title">DriveGO Ecuador</h2>
           <h3 className="subtitle">
             Tu destino confiable para compra y venta de vehículos
           </h3>
@@ -34,17 +34,18 @@ const Contactos = () => {
           </p>
         </div>
 
-        {/* Contact Cards Grid */}
+    
         <div className="cards-grid">
-          {/* Phone Card */}
+
           <div className="contact-card">
             <div className="card-content">
               <div className="icon-wrapper icon-wrapper-blue">
                 <Phone className="icon" />
               </div>
-              <div>
+              <div className="card-info">
                 <h4 className="card-title">Llámanos</h4>
                 <p className="card-text">+593 987975666</p>
+                <p className="card-text">+593 987654321</p>
               </div>
             </div>
           </div>
@@ -71,10 +72,56 @@ const Contactos = () => {
               </div>
               <div>
                 <h4 className="card-title">Visítanos</h4>
-                <p className="card-text">Universidad Tecnica de Ambato</p>
+                <p className="card-text">Matriz principal: Av. Principal 123, Ambato </p>
               </div>
             </div>
           </div>
+
+          {/*Formulario del contacto */}
+          <div className="formulario-section">
+          <h3 className="section-title">Envíanos un mensaje</h3>
+          <div className="formulario-container">
+            <div className="input-group">
+              <input type="text" placeholder="Nombre completo" className="input-field" />
+              <input type="email" placeholder="Correo electrónico" className="input-field" />
+            </div>
+            <div className="input-group">
+              <input type="tel" placeholder="Teléfono" className="input-field" />
+              <select className="input-field">
+                <option value="">Seleccione un tema</option>
+                <option value="compra">Compra de vehículo</option>
+                <option value="venta">Venta de vehículo</option>
+                <option value="financiamiento">Financiamiento</option>
+                <option value="postventa">Servicio postventa</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <textarea placeholder="Mensaje" rows="5" className="input-field textarea"></textarea>
+            <div className="vehiculo-interes">
+              <h4>¿Qué vehículo te interesa?</h4>
+              <div className="vehiculos-opciones">
+                <label className="vehiculo-opcion">
+                  <input type="checkbox" />
+                  <span>Sedan</span>
+                </label>
+                <label className="vehiculo-opcion">
+                  <input type="checkbox" />
+                  <span>SUV</span>
+                </label>
+                <label className="vehiculo-opcion">
+                  <input type="checkbox" />
+                  <span>Pickup</span>
+                </label>
+                <label className="vehiculo-opcion">
+                  <input type="checkbox" />
+                  <span>Deportivo</span>
+                </label>
+              </div>
+            </div>
+            <button className="submit-button">Enviar mensaje</button>
+          </div>
+        </div>
+
         </div>
       </div>
     </div>
