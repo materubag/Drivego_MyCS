@@ -23,10 +23,9 @@ const Home = () => {
           setError(data.message || "Error al obtener vehículos.");
         }
       } catch (err) {
-
         setError("Error al cargar los vehículos. Intente nuevamente.");
-        console.log(erro.message);
-        
+        console.log(err.message);
+
       } finally {
         setIsLoading(false);
       }
