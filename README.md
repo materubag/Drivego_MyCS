@@ -33,7 +33,13 @@
    npm start
    ```
 
-3. Ejecuta el backend (según el módulo: Node, Java, o PHP)
+3. Instala dependencias PHP con Composer:
+   ```bash
+   cd backend/php
+   composer install
+   ```
+
+4. Ejecuta el backend (según el módulo: Node, Java, o PHP)
 
    - **Node.js API** (ejemplo):
      ```bash
