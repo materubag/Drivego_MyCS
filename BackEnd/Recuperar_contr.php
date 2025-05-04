@@ -29,7 +29,35 @@ if (isset($input['cont']) && isset($input['cont_temp'])) {
             ':cont_temp' => $cont_temp
         ]);
 
-        
+        if ($stmt->rowCount() > 0) {
+            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+           
+                $id_usu = $usuario['id_usu'];
+
+             
+                $query2 = "UPDATE usuarios 
+                           SET CON_USU = :cont_nue, CONT_TEMP = :cod, TMP_CONT = :cfm 
+                           WHERE Id_usu = :id;";
+                $stmt2 = $conn->prepare($query2);
+                $stmt2->execute([
+                    ':cont_nue' => $cont,
+                    ':cod' => $est_cont_temp,
+                    ':cfm' => $cfm,
+                    ':id' => $id_usu
+                ]);
+
+                $response = [
+                    "status" => true,
+                    "message" => "Contraseña cambiada exitosamente"
+                ];
+            
+        } else {
+            $response = [
+                "status" => false,
+                "message" => "Contraseña temporal incorrecta"
+            ];
+        }
     } catch (PDOException $e) {
         $response = [
             "status" => false,
