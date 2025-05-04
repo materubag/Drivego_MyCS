@@ -2,12 +2,17 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Styles/Login.css";
 import axios from "axios";
-import { BACK_URL } from "../config.js";
+import Recuperar from "../Components/Recuperar_cont";
+import CambiarContraseña from "./CambiarContraseña";
+import {BACK_URL} from "../config.js";
+
 
 const Login = ({ closeModal }) => {
   const [correo_usuario, setCorreo] = useState("");
   const [contrasena, setPassword] = useState("");
   const navigate = useNavigate();
+  const [showForgotPasswordModal, setShowForgotPasswordModal] = useState(false);
+  const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -16,10 +21,14 @@ const Login = ({ closeModal }) => {
     };
   }, []);
 
+  const toggleForgotPasswordModal = () => {
+    setShowForgotPasswordModal(!showForgotPasswordModal);
+  };
+
   const handleLogin = async () => {
     try {
       const response = await axios.post(
-        BACK_URL + "/Login.php",
+        BACK_URL+"/Login.php",
         {
           correo_usuario,
           contrasena,
@@ -31,20 +40,21 @@ const Login = ({ closeModal }) => {
         const userData = {
           nombre: response.data.nombre || "Usuario",
           rol: response.data.rol,
-          correo: correo_usuario,
+          correo: correo_usuario, 
         };
         localStorage.setItem("user", JSON.stringify(userData));
-
+      
         if (response.data.redirect === "si") {
           console.log("si abre");
+          toggleChangePasswordModal();
         } else if (response.data.rol === "Cliente") {
-          window.location.reload();
+            window.location.reload();
           closeModal();
         } else if (response.data.rol === "Administrador") {
           console.log("Inicio de sesión como Administrador");
           closeModal();
           navigate("/administrador");
-        } else if (response.data.rol === "Empleado") {
+        }else if (response.data.rol === "Empleado") {
           console.log("Inicio de sesión como Empleado");
           closeModal();
           navigate("/empleado");
@@ -56,6 +66,12 @@ const Login = ({ closeModal }) => {
       console.error("Error al conectar con el backend", error);
       alert("Hubo un problema al conectar con el servidor");
     }
+  };
+
+ 
+
+  const toggleChangePasswordModal = () => {
+    setShowChangePasswordModal(!showChangePasswordModal);
   };
 
   return (
@@ -82,19 +98,25 @@ const Login = ({ closeModal }) => {
             value={contrasena}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <i className="cont">
+          <i className="cont" onClick={toggleForgotPasswordModal}>
             ¿Olvidaste la contraseña?
           </i>
           <div className="button-container">
             <button className="btn-in" onClick={handleLogin}>
               Iniciar Sesión
             </button>
-            <div className="reg">
+            <div className="reg" >
               ¿No tienes cuenta? <span className="reg-link">Regístrate</span>
             </div>
           </div>
         </div>
       </div>
+      {showForgotPasswordModal && (
+        <Recuperar closeModal={toggleForgotPasswordModal} />
+      )} 
+      {showChangePasswordModal && (
+        <CambiarContraseña closeModal={toggleChangePasswordModal} />
+      )}
     </>
   );
 };

@@ -8,7 +8,26 @@ const Recuperar_cont = ({ closeModal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-   
+    try {
+      const response = await axios.post(
+        BACK_URL+"/CorreoTemporal.php",
+        { email },
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+      if (response.data.status==true) {
+        alert(response.data.message);
+        closeModal();
+      } else {
+        alert(response.data.message);
+      }
+    } catch (error) {
+      console.error("Error al enviar la solicitud:", error);
+      alert("Hubo un error al procesar la solicitud.");
+    }
   };
 
   return (
