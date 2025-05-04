@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include '../config.php';
 header("Access-Control-Allow-Origin: " . FRONT_URL);
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
