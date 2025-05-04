@@ -33,6 +33,7 @@ if (
 
     try {
         $mail->isSMTP();
+        $mail->CharSet = 'UTF-8';
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'proyectodrivego@gmail.com';

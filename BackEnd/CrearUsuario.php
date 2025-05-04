@@ -53,6 +53,7 @@ if (isset($input['nom_usu'])&&isset($input['ape_usu']) && isset($input['cor_usu'
         $mail->addAddress($corr);
    
         $mail->isHTML(true);
+        $mail->CharSet = 'UTF-8';
         $mail->Subject = 'Verificación de cuenta';
         $mail->Body = "
                     <h1>Bienvenido a DriveGo</h1>
