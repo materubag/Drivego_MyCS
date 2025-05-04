@@ -1,98 +1,342 @@
-.lugares-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-    gap: 20px;
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-  .lugaresCard{
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow:  0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 20px;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .lugaresCard img{
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 15px;
-  }
-  .lugaresCard h3{
-    font-size: 1.5rem;
-    color: #333333;
-    margin-bottom: 15px;
-  }
-  .lugaresCard p{
-    font-size: 0.9rem;
-    color: #555555;
-    margin: 5px 0;
-    line-height: 1.5;
-  }
-   .lugaresCard p:nth-of-type(1) { /* Dirección */
-     font-weight: 700;
-     color: #2c3e50;
-   }
 
-   .lugaresCard p:nth-of-type(2) { /* Contactos */
-     color: #3498db;
-     font-weight: 500;
-   }
+:root {
+  --color-primario: #e63946;
+  --color-secundario: #1a2942;
+  --color-fondo: #f8f9fa;
+  --color-texto: #555;
+  --color-muted: #666;
+  --fuente-principal: 'Montserrat', sans-serif;
+  --border-radius: 12px;
+  --box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  --box-shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
 
-   .lugaresCard p:nth-of-type(3) { /* Email */
-    font-weight: 500;
-     color: #2980b9;
-   }
+body {
+  font-family: var(--fuente-principal);
+  color: var(--color-texto);
+  line-height: 1.6;
+}
 
-   .lugaresCard p:nth-of-type(4) { /* Descripción */
-     font-style: normal;
-     color: #333333;
-   }
+/* ===== Contenedor Principal ===== */
+.sucursales-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
 
-   .lugaresCard-horario{
-      font-family:'Roboto', sans-serif;
-      padding: 10px;
-      gap: 10px;
-      background-color: #f8f9fa;
-      padding: 0.8rem;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      border-left: 3px solid #007bff;
-   }
+/* ===== Encabezado ===== */
+.sucursales-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
 
+.sucursales-header h1 {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  color: var(--color-secundario);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
 
-  .lugaresCard:hover{
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.sucursales-header p {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  color: var(--color-muted);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ===== Grid de Sucursales ===== */
+.sucursales-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 1.5rem;
+}
+
+/* ===== Tarjeta de Sucursal ===== */
+.sucursal-card {
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sucursal-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+/* ===== Imagen ===== */
+.sucursal-imagen {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.sucursal-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.sucursal-card:hover .sucursal-imagen img {
+  transform: scale(1.07);
+}
+
+.sucursal-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--color-primario);
+  color: white;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Información de la Sucursal ===== */
+.sucursal-info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.sucursal-info h2 {
+  color: var(--color-secundario);
+  font-size: clamp(1.4rem, 4vw, 1.6rem);
+  margin-bottom: 1rem;
+  font-weight: 600;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+}
+
+/* ===== Resumen ===== */
+.sucursal-resumen {
+  margin-bottom: 1rem;
+}
+
+.sucursal-ubicacion {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: clamp(0.85rem, 3vw, 0.95rem);
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.sucursal-ubicacion i {
+  color: var(--color-primario);
+  font-size: 1.1rem;
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+.sucursal-mini-contacto {
+  font-size: 0.9rem;
+  color: var(--color-texto);
+}
+
+/* ===== Botón Expandir ===== */
+.btn-expandir {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin: 0 0 1rem auto;
+  background-color: var(--color-fondo);
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  color: var(--color-secundario);
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  align-self: flex-end;
+}
+
+.btn-expandir:hover {
+  background-color: #e9ecef;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Contenido Expandible ===== */
+.sucursal-detalles-expandibles {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Contacto ===== */
+.sucursal-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.contacto-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: clamp(0.85rem, 3vw, 0.9rem);
+}
+
+.contacto-item i {
+  color: var(--color-secundario);
+  font-size: 1rem;
+  width: 20px;
+  flex-shrink: 0;
+}
+
+/* ===== Descripción ===== */
+.sucursal-descripcion {
+  font-size: clamp(0.85rem, 3vw, 0.95rem);
+  line-height: 1.6;
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  color: var(--color-texto);
+}
+
+/* ===== Horarios ===== */
+.sucursal-horario {
+  background-color: var(--color-fondo);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.sucursal-horario h4 {
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  font-weight: 600;
+  color: var(--color-secundario);
+  margin-bottom: 0.5rem;
+}
+
+.horario-detalle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.horario-item span {
+  font-weight: 600;
+  color: var(--color-secundario);
+  display: block;
+  margin-bottom: 0.15rem;
+  font-size: clamp(0.85rem, 3vw, 0.9rem);
+}
+
+.horario-item p {
+  font-size: clamp(0.8rem, 3vw, 0.9rem);
+  color: var(--color-texto);
+}
+
+/* ===== Botones ===== */
+.sucursal-acciones {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.btn-secundario {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: clamp(0.85rem, 3vw, 0.9rem);
+  font-weight: 600;
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid var(--color-secundario);
+  background-color: #ffffff;
+  color: var(--color-secundario);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secundario:hover {
+  background-color: var(--color-secundario);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ===== Media Queries Específicas ===== */
+@media (max-width: 992px) {
+  .sucursales-container {
+    padding: 1.25rem;
   }
-  /* Media Queries para pantallas pequeñas */
-@media (max-width: 768px) {
-  .card h3 {
-    font-size: 1rem;
-  }
-
-  .card p {
-    font-size: 0.85rem;
-  }
-
-  .card button {
-    padding: 8px 12px;
-    font-size: 0.8rem;
+  
+  .sucursales-grid {
+    gap: 1.25rem;
   }
 }
 
-@media (max-width: 480px) {
-  .cards-container {
+@media (max-width: 768px) {
+  .sucursales-container {
+    padding: 1rem;
+  }
+  
+  .sucursales-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .sucursal-imagen {
+    height: 180px;
+  }
+  
+  .sucursal-info {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .sucursales-grid {
     grid-template-columns: 1fr;
   }
-
-  .card {
-    padding: 10px;
+  
+  .sucursal-card {
+    max-width: 400px;
+    margin: 0 auto;
   }
+  
+  .sucursal-acciones {
+    flex-direction: column;
+  }
+  
+  .btn-secundario {
+    width: 100%;
+  }
+}
 
-  .card img {
-    margin-bottom: 10px;
+@media (max-width: 400px) {
+  .sucursal-imagen {
+    height: 160px;
+  }
+  
+  .sucursal-badge {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+  }
+  
+  .contacto-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
   }
 }
