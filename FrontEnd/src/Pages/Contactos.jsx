@@ -19,7 +19,7 @@ const Contactos = () => {
         </div>
       </div>
 
-
+      {/**Informacion principal */}
       <div className="main-content">
         
         <div className="intro-section">
@@ -34,9 +34,9 @@ const Contactos = () => {
           </p>
         </div>
 
-    
+        {/**Tarjetas */ }    
         <div className="cards-grid">
-
+            
           <div className="contact-card">
             <div className="card-content">
               <div className="icon-wrapper icon-wrapper-blue">
