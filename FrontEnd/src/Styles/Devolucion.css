@@ -1,0 +1,209 @@
+.devolucion-container {
+  padding: clamp(10px, 3vw, 20px);
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Form card */
+.devolucion-container .form-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: clamp(16px, 4vw, 24px);
+  width: 100%;
+}
+
+/* Title section */
+.devolucion-container .form-title {
+  font-size: clamp(18px, 4vw, 24px);
+  color: #333;
+  margin-bottom: clamp(16px, 4vw, 24px);
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 2vw, 10px);
+  border-bottom: 2px solid #eee;
+  padding-bottom: clamp(12px, 3vw, 16px);
+}
+
+.devolucion-container .car-icon {
+  font-size: clamp(18px, 4vw, 24px);
+}
+
+/* Form structure */
+.devolucion-container .devolucion-form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 3vw, 20px);
+}
+
+.devolucion-container .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Input elements */
+.devolucion-container .select-input,
+.devolucion-container .description-input,
+.devolucion-container .number-input {
+  padding: clamp(8px, 2vw, 10px);
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: clamp(12px, 2vw, 14px);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Checklist styles */
+.devolucion-container .checklist-container {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 3vw, 16px);
+}
+
+.devolucion-container .category-section {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden; /* Fixes layout issues */
+  width: 100%;
+  background: #f9f9f9; /* Adds visual distinction */
+}
+
+.devolucion-container .category-toggle {
+  padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 16px);
+  font-size: clamp(12px, 2vw, 14px);
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  outline: none;
+}
+
+.devolucion-container .category-toggle.active {
+  background: #0056b3;
+}
+
+.devolucion-container .checklist-items {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(12px, 3vw, 16px);
+  gap: clamp(12px, 3vw, 16px);
+}
+
+/* Ensure checkboxes and labels are properly aligned */
+.devolucion-container .checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.devolucion-container .checkbox-input {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.devolucion-container .checkbox-label {
+  font-size: clamp(12px, 2vw, 14px);
+  color: #333;
+}
+
+/* Switch styles */
+.devolucion-container .switch-container {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 2vw, 12px);
+}
+
+.devolucion-container .switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.devolucion-container .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.devolucion-container .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+
+.devolucion-container .slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+.devolucion-container input:checked + .slider {
+  background-color: #2196F3;
+}
+
+.devolucion-container input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.devolucion-container .slider.round {
+  border-radius: 24px;
+}
+
+.devolucion-container .slider.round:before {
+  border-radius: 50%;
+}
+
+.devolucion-container .submit-button {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: clamp(10px, 2vw, 12px);
+  font-size: clamp(14px, 2vw, 16px);
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.devolucion-container .submit-button:hover {
+  background: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .devolucion-container .form-title {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .devolucion-container .checkbox-container {
+    align-items: flex-start;
+  }
+
+  .devolucion-container .switch-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

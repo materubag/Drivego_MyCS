@@ -8,7 +8,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
   }
   
   .Recuperar-content {
@@ -31,32 +30,21 @@
   }
   
   .Recuperar-content .btn-submit {
-    background-image: linear-gradient(to left, #0056b3, #0056b3);
+    background-image: linear-gradient(to left, #34cdab, #32d874);
     border: none;
-    border-radius: 8px;
+    border-radius: 20px;
     color: white;
     padding: 10px;
-    cursor: pointer;
-    width: 100%;
+       cursor: pointer;
   }
   
   .Recuperar-content .btn-close {
-    background-color:  #dc3545;
+    background-color: #f44336;
     color: white;
     padding: 10px;
     border: none;
-    border-radius: 8px;
+    border-radius: 20px;
     margin-top: 10px;
     cursor: pointer;
-    width: 100%;
   }
   
-  .success {
-    color: green;
-    margin-bottom: 10px;
-  }
-  
-  .error {
-    color: red;
-    margin-bottom: 10px;
-  }

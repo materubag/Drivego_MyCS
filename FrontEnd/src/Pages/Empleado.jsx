@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../Styles/Administrador.css";
 import { useNavigate } from "react-router-dom";
-import Reserva from "./Reserva";
-import Devolucion from "./Devolucion";
-import Facturacion from "./Facturacion";
-import ModalConfirm from "./ModalConfirm";
+import Reserva from "../Pages_Admin/Reserva";
+import Devolucion from "../Pages_Admin/Devolucion";
+import Facturacion from "../Pages_Admin/Facturacion";
+import ModalConfirm from "../Modals/ModalConfirm";
 
 const Empleado = () => {
   const [menuVisible, setMenuVisible] = useState(false);

@@ -5,6 +5,7 @@ import ModalVehiculo from "../Modals/InfoVehiculo.jsx";
 import { BACK_URL } from "../config.js";
 import DefaultImg from "/public/Img_default.jpg"; 
 
+
 const Home = () => {
   const [vehiculos, setVehiculos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -26,7 +27,6 @@ const Home = () => {
         setError("Error al cargar los vehículos. Intente nuevamente.");
         
         console.log(err.message);
-
       } finally {
         setIsLoading(false);
       }
@@ -40,7 +40,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <Carusell />
+      <Carusell/> 
       <section className="section">
         {isLoading ? (
           <div className="loading-container">
@@ -58,7 +58,7 @@ const Home = () => {
           <div className="ofertas">
             {vehiculos.map((vehiculo, index) => (
               <article key={index} className="oferta">
-                <div className="oferta-img">
+                <div className="oferta-imag">
                   <img
                     src={`${BACK_URL}/${vehiculo.img_veh || DefaultImg}`}
                     alt={`${vehiculo.mar_veh} ${vehiculo.mod_veh}`}
