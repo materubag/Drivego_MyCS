@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../Styles/Login.css";
 import axios from "axios";
 import Registro from "../Modals/RegistrarSesion.jsx";
-import Recuperar from "../Modals/RegistrarSesion.jsx";
+import Recuperar from "../Modals/RecuperarContraseña.jsx";
 import CambiarContraseña from "../Modals/CambiarContraseña.jsx";
 import {BACK_URL} from "../config.js";
 
