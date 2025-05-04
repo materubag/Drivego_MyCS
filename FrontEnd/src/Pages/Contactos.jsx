@@ -1,11 +1,45 @@
-import React from 'react';
-import { Phone, Mail, Instagram, Facebook, MapPin } from 'lucide-react';
-import "../Styles/Contactos.css";  // Importación regular de CSS
+import React,{useState} from 'react';
+import { Phone, Mail, MapPin } from 'lucide-react';
+import "../Styles/Contactos.css";
+import axios from 'axios';
+import { BACK_URL } from '../config';
 
 const Contactos = () => {
+  const [form, setForm] = useState({
+    nombre: '',
+    correo: '',
+    tipo: '',
+    tema: '',
+    mensaje: '',
+  });
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        BACK_URL+"/Contacto.php", 
+        JSON.stringify(form),
+        {
+        headers: { 'Content-Type': 'application/json' },
+       
+      });
+
+      alert(response.data.message || 'Mensaje enviado correctamente');
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+      alert('Hubo un problema al enviar tu mensaje.');
+    }
+  };
+  
   return (
     <div className="contact-container">
-      
+
       <div className="contact-hero">
         <img
           src="/BannerCon.png"
@@ -33,8 +67,7 @@ const Contactos = () => {
             en el proceso de compra.
           </p>
         </div>
-
-        {/**Tarjetas */ }    
+   
         <div className="cards-grid">
 
           <div className="contact-card">
@@ -50,7 +83,7 @@ const Contactos = () => {
             </div>
           </div>
 
-          {/* Email Card */}
+
           <div className="contact-card">
             <div className="card-content">
               <div className="icon-wrapper icon-wrapper-green">
@@ -64,7 +97,7 @@ const Contactos = () => {
             </div>
           </div>
 
-          {/* Location Card */}
+          
           <div className="contact-card">
             <div className="card-content">
               <div className="icon-wrapper icon-wrapper-purple">
@@ -77,18 +110,48 @@ const Contactos = () => {
             </div>
           </div>
 
-          {/*Formulario del contacto */}
+
 
           <div className="formulario-section">
           <h3 className="section-title">Envíanos un mensaje</h3>
-          <div className="formulario-container">
+          <form className="formulario-container" onSubmit={handleSubmit} >
             <div className="input-group">
-              <input type="text" placeholder="Nombre completo" className="input-field" />
-              <input type="email" placeholder="Correo electrónico" className="input-field" />
-            </div>
-            <div className="input-group">
-              <input type="tel" placeholder="Teléfono" className="input-field" />
-              <select className="input-field">
+            <input
+                  type="text"
+                  name="nombre"
+                  placeholder="Nombre completo"
+                  className="input-field"
+                  value={form.nombre}
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  type="email"
+                  name="correo"
+                  placeholder="Correo electrónico"
+                  className="input-field"
+                  value={form.correo}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="input-group">
+                <input
+                  type="tel"
+                  name="tipo"
+                  placeholder="Teléfono"
+                  className="input-field"
+                  value={form.tipo}
+                  onChange={handleChange}
+                />
+                <select
+                  name="tema"
+                  className="input-field"
+                  value={form.tema}
+                  onChange={handleChange}
+                  required
+                >
+             
                 <option value="">Seleccione un tema</option>
                 <option value="compra">Compra de vehículo</option>
                 <option value="venta">Venta de vehículo</option>
@@ -97,7 +160,16 @@ const Contactos = () => {
                 <option value="otro">Otro</option>
               </select>
             </div>
-            <textarea placeholder="Mensaje" rows="5" className="input-field textarea"></textarea>
+            <textarea
+                name="mensaje"
+                placeholder="Mensaje"
+                rows="5"
+                className="input-field textarea"
+                value={form.mensaje}
+                onChange={handleChange}
+                required
+              ></textarea>
+
             <div className="vehiculo-interes">
               <h4>¿Qué vehículo te interesa?</h4>
               <div className="vehiculos-opciones">
@@ -119,8 +191,8 @@ const Contactos = () => {
                 </label>
               </div>
             </div>
-            <button className="submit-button">Enviar mensaje</button>
-          </div>
+            <button className="submit-button" type='submit'>Enviar mensaje</button>
+          </form>
         </div>
 
         </div>
