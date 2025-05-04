@@ -1,0 +1,141 @@
+.card_veh{
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.25rem;/*20px*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem auto;
+    max-width: 90%;
+    margin-bottom: 20px;
+    margin-left: 300px;
+    margin-right: 20px;
+}
+.car-head{
+    margin-bottom: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.car-tit{
+    font-size: clamp(1.5rem, 2vw, 2rem);/*24px;*/
+    font-weight: bold;
+    margin: 0;
+}
+
+.button {
+    padding: 0.625rem 1.25rem;/*10px 20px;*/
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: clamp(0.875rem, 1vw, 1rem);
+  }
+
+.btn-ag{
+    width: 100%;
+    max-width: 200px;
+    height: 55px;
+    background-image: linear-gradient(to left,#050a30, #050a30);
+    color: white;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+  .btn-ag:hover {
+    background-color:#050a30;
+    transform: scale(1.05);
+  }
+  .car-cont{
+    overflow-x: auto;
+  }
+
+  .tab-cont{
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .tab-head{
+    background-color: #f5f5f5;
+    padding: 0.625rem;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+  }
+  .table-cell {
+    padding: 0.625rem;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .btn-activs {
+    display: flex;
+    gap: 0.625rem;
+    padding: 0.25rem;
+  }
+  
+  .btn-acti {
+    padding: 0.5rem;
+    width: 100%;
+    min-width: 40px; 
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .btn-acti:hover {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    transform: scale(1.05);
+  }
+
+@media (max-width: 768px) {
+  .card_veh {
+    padding: 1rem;
+    max-width: 95%;
+  }
+
+  .car-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .btn-ag {
+    max-width: 100%;
+  }
+
+  .btn-activs {
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .btn-acti {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .car-tit {
+    font-size: clamp(1.25rem, 4vw, 1.5rem); /* Texto más pequeño en móviles */
+  }
+
+  .btn-ag {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+    height: auto;
+  }
+
+  .btn-acti {
+    padding: 0.4rem;
+    font-size: 0.75rem;
+  }
+
+  .tab-head, .table-cell {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
+}
