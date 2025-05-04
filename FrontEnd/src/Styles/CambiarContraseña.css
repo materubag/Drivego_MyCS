@@ -1,0 +1,62 @@
+.Recuperar-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .Recuperar-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+  }
+  
+  .Recuperar-content h2 {
+    margin-bottom: 20px;
+  }
+  
+  .Recuperar-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  .Recuperar-content .btn-submit {
+    background-image: linear-gradient(to left, #34cdab, #32d874);
+    border: none;
+    border-radius: 20px;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .Recuperar-content .btn-close {
+    background-color: #f44336;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .success {
+    color: green;
+    margin-bottom: 10px;
+  }
+  
+  .error {
+    color: red;
+    margin-bottom: 10px;
+  }

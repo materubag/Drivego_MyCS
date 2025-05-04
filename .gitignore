@@ -1,4 +1,6 @@
-
 /FrontEnd/node_modules
+/FrontEnd/src/config.js
 /BackEnd/bd.php
-
+/BackEnd/config.php
+/BackEnd/composer.lock
+/BackEnd/vendor

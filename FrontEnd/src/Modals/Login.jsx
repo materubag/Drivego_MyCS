@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "../Styles/Login.css";
 import axios from "axios";
 import { BACK_URL } from "../config.js";
 
@@ -18,7 +19,7 @@ const Login = ({ closeModal }) => {
   const handleLogin = async () => {
     try {
       const response = await axios.post(
-        BACK_URL + "/login.php",
+        BACK_URL + "/Login.php",
         {
           correo_usuario,
           contrasena,

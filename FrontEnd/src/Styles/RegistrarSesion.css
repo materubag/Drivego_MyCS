@@ -1,0 +1,158 @@
+.modal-reg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  .modal-cont {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    max-height:80vh;
+    text-align: center;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display:flex;
+    flex-direction:column;
+    overflow: auto;
+  }
+  
+  .modal-cont h2 {
+    padding-top: 10px;
+    font-size: 1.2rem;
+  
+  }
+  
+  .close-button-reg {
+    float: right;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding:5px;
+  }
+  
+   input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  .modal-cont input {
+    width: calc(90% - 9px);
+    margin: 1px auto;
+    padding:8px;
+    display: block;
+    box-sizing: border-box;
+    display: block;
+  }
+  
+  .let img{
+    margin-top: 1.5rem;
+  }
+  
+  .btn_reg_ses {
+    padding: 10px 20px;
+    background-image: linear-gradient(to left, #050a30, #050a30);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 16px;
+  }
+  
+  button i {
+    margin-right: 8px;
+  }
+  
+  @media screen and (max-width: 480px) {
+    .modal-cont {
+      width: 95%;
+      max-width: 320px;
+      padding: 15px;
+      max-height: 90vh;
+    }
+  
+    .modal-cont h2 {
+      font-size: 1.1rem;
+      padding-top: 8px;
+    }
+  
+    .close-button-reg {
+      font-size: 1.1rem;
+      padding: 3px;
+    }
+  
+    input {
+      padding: 8px;
+      font-size: 13px;
+      margin: 6px 0;
+    }
+  
+    .modal-cont input {
+      width: calc(95% - 6px);
+      margin: 4px auto;
+    }
+  
+    .btn_reg_ses {
+      padding: 8px 16px;
+      margin-top: 12px;
+      width: 90%;
+      max-width: 200px;
+      font-size: 0.9rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .let img {
+      margin-top: 1rem;
+      max-width: 100%;
+      height: auto;
+    }
+  
+    button i {
+      margin-right: 6px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .modal-cont {
+      padding: 20px;
+      max-width: 500px;
+      max-height: 85vh;
+    }
+  
+    .modal-cont h2 {
+      font-size: 1.3rem;
+      padding-top: 10px;
+    }
+  
+    .close-button-reg {
+      font-size: 1.25rem;
+      padding: 5px;
+    }
+  
+    input {
+      padding: 10px;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+  
+    .modal-cont input {
+      width: calc(90% - 8px);
+      margin: 6px auto;
+    }
+  
+    .btn_reg_ses {
+      padding: 10px 20px;
+      font-size: 1rem;
+      margin-top: 16px;
+    }
+  }
