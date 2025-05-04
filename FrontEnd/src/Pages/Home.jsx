@@ -39,7 +39,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <Carusell/> d28207825f5e4dce47f9fdb7572fd31dcbfdd5ca
+      <Carusell/> 
       <section className="section">
         {isLoading ? (
           <div className="loading-container">

@@ -7,7 +7,6 @@ import Recuperar from "../Modals/RecuperarContraseña.jsx";
 import CambiarContraseña from "../Modals/CambiarContraseña.jsx";
 import {BACK_URL} from "../config.js";
 
-
 const Login = ({ closeModal }) => {
   const [correo_usuario, setCorreo] = useState("");
   const [contrasena, setPassword] = useState("");
