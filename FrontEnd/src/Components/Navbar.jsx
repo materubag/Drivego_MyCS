@@ -6,7 +6,7 @@ import "../Styles/Navbar.css";
 
 const linksCliente = [
   { name: "Home", href: "/home" },
-  { name: "Oficinas", href: "/oficinas" },
+  { name: "Sucursales", href: "/oficinas" },
   { name: "Vehiculos", href: "/venta" },
   { name: "Contactos", href: "/contactos" },
 ];
