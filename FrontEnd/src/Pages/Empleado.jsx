@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Reserva from "./Reserva";
 import Devolucion from "./Devolucion";
 import Facturacion from "./Facturacion";
-import ModalConfirm from "./ModalConfirm";
+import ModalConfirm from "../Modals/ModalConfirm";
 
 const Empleado = () => {
   const [menuVisible, setMenuVisible] = useState(false);

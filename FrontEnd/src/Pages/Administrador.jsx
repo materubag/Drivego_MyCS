@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "../Styles/Administrador.css";
 import { useNavigate } from "react-router-dom";
-import Ges_user from "./Gestion_usuarios";
-import Ges_veh from "./Gestion_vehiculos";
-import Report from "./Reportes";
-import Tariff from "./Tarifas";
-import ModalConfirm from "./ModalConfirm";
+import Ges_user from "../Pages_Admin/Gestion_usuarios";
+import Ges_veh from "../Pages_Admin/Gestion_vehiculos";
+import Report from "../Pages_Admin/Reportes";
+import Tariff from "../Pages_Admin/Tarifas";
+import ModalConfirm from "../Modals/ModalConfirm";
 
 const Administrador = () => {
   const [menuVisible, setMenuVisible] = useState(false);
