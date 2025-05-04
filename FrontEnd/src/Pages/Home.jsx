@@ -25,7 +25,8 @@ const Home = () => {
         }
       } catch (err) {
         setError("Error al cargar los vehículos. Intente nuevamente.");
-      } finally {git c
+        console.log(err.message);
+      } finally {
         setIsLoading(false);
       }
     };
@@ -38,7 +39,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <Carusell />
+      <Carusell/>
       <section className="section">
         {isLoading ? (
           <div className="loading-container">

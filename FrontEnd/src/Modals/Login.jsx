@@ -19,7 +19,7 @@ const Login = ({ closeModal }) => {
   const handleLogin = async () => {
     try {
       const response = await axios.post(
-        BACK_URL + "/login.php",
+        BACK_URL + "/Login.php",
         {
           correo_usuario,
           contrasena,
