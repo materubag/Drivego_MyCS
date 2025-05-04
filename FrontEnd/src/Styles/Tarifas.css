@@ -1,0 +1,133 @@
+.vehicle-rate-assignment-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-left: 300px;
+    margin-right: 20px;
+    max-width:100%;
+  }
+  
+  .vehicle-rate-assignment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px
+  }
+  
+  .vehicle-rate-assignment-title {
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .vehicle-rate-assignment-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(12px, 1.5vw, 14px);
+    width: 100%;
+    max-width:200px;
+    height: 50px;
+    background-image: linear-gradient(to left, #050a30, #050a30);
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .vehicle-rate-assignment-button:hover {
+    background-color: #050a30;
+  }
+  
+  .vehicle-rate-assignment-content {
+    overflow-x: auto;
+  }
+  
+  .vehicle-rate-assignment-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: clamp(12px, 1.5vw, 14px);
+  }
+  
+  .vehicle-rate-assignment-table-head {
+    background-color: #f5f5f5;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .vehicle-rate-assignment-table-cell {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .vehicle-rate-assignment-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap:wrap;
+    justify-content: center
+    margin-top: 20px;
+  }
+  
+  .vehicle-rate-assignment-action-button {
+    padding: 10px 15px;
+    width: 100%;
+    max-width: 150px;
+    height: 40px;
+    color: white;
+    background-image: linear-gradient(to left, #050a30, #050a30);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(12px, 1.5vw, 14px);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .vehicle-rate-assignment-action-button:hover {
+    background-color: #121d70;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .vehicle-rate-assignment-card {
+      max-width: 100%;
+      padding: 15px;
+    }
+
+    .vehicle-rate-assignment-header {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .vehicle-rate-assignment-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .vehicle-rate-assignment-title {
+      font-size: 18px;
+    }
+
+    .vehicle-rate-assignment-button {
+      font-size: 12px;
+      height: 40px;
+    }
+
+    .vehicle-rate-assignment-action-button {
+      font-size: 12px;
+      height: 40px;
+    }
+  }
