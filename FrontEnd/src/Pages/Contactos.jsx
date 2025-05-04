@@ -36,7 +36,7 @@ const Contactos = () => {
 
         {/**Tarjetas */ }    
         <div className="cards-grid">
-            
+
           <div className="contact-card">
             <div className="card-content">
               <div className="icon-wrapper icon-wrapper-blue">
@@ -78,6 +78,7 @@ const Contactos = () => {
           </div>
 
           {/*Formulario del contacto */}
+
           <div className="formulario-section">
           <h3 className="section-title">Envíanos un mensaje</h3>
           <div className="formulario-container">
@@ -110,7 +111,7 @@ const Contactos = () => {
                 </label>
                 <label className="vehiculo-opcion">
                   <input type="checkbox" />
-                  <span>Pickup</span>
+                  <span>Camionetas</span>
                 </label>
                 <label className="vehiculo-opcion">
                   <input type="checkbox" />
