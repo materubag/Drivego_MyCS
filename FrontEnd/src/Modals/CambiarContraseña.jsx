@@ -11,7 +11,7 @@ const CambiarContraseña = ({ closeModal }) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        BACK_URL+"/CambiarContraseña.php",
+        BACK_URL+"/Recuperar_contr.php",
         {
           cont_temp,
           cont,
