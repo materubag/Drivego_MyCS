@@ -1,0 +1,101 @@
+.modal_edit_user{
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    z-index: 1000; 
+    padding-top: 20px;
+}
+.modal_cont{
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    animation: fadeIn 0.3s ease-out;
+    box-sizing: border-box;
+}
+.modal_cont label {
+  display: block;
+  margin-bottom: 8px;
+  color: black;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.modal_cont input,.modal_cont select{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+.button-group button {
+  flex: 1;
+  max-width: 48%;
+  padding: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  background-color: #050a30;
+}
+
+.button-group button:hover {
+  background-color: #121d70;
+}
+
+@media (max-width: 768px) {
+  .modal_cont {
+    padding: 15px;
+    max-width: 95%;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button-group button {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal_cont {
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  .modal_cont label {
+    font-size: 0.9em;
+  }
+
+  .modal_cont input,
+  .modal_cont select {
+    font-size: 0.9em;
+  }
+
+  .button-group button {
+    font-size: 0.9em;
+  }
+}
+
