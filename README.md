@@ -6,8 +6,7 @@
 
 - ⚛️ **React** – Interfaz de usuario moderna y responsiva
 - 🌐 **HTML/CSS** – Maquetado y estilos personalizados
-- 🟢 **Node.js** – Backend y API REST
-- ☕ **Java** – Lógica adicional del servidor / microservicios
+- 🟢 **Node.js** – Gestor de paquetes para instalar dependencias
 - 🐘 **PHP** – Controladores y lógica adicional del servidor
 
 ## ✨ Características principales
@@ -57,15 +56,16 @@
    - **PHP**:
      Asegúrate de tener Apache o PHP instalado, y coloca los archivos en tu servidor local (`htdocs` o similar).
 
-## 📸 Capturas de pantalla
+## 📸 Capturas del proyecto
 
-*(Agrega aquí imágenes del frontend si tienes)*
+![Home](https://imgur.com/ELitL0X.png)
+
+![Sucursales](https://imgur.com/742v8h0.png)
 
 ## 📌 Requisitos del sistema
 
 - Node.js 18+
 - Servidor Apache o Nginx (para PHP)
-- JDK 17+ (si usas Java moderno)
 - Navegador moderno
 
 ## 🤝 Contribuciones

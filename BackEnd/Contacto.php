@@ -1,4 +1,5 @@
 <?php
+include 'config.php';
 header('Content-Type: application/json');
 header("Access-Control-Allow-Origin: " . FRONT_URL);
 header('Access-Control-Allow-Methods: POST, OPTIONS');
