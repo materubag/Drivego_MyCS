@@ -31,9 +31,9 @@
   }
   
   .Recuperar-content .btn-submit {
-    background-image: linear-gradient(to left, #34cdab, #32d874);
+    background-image: linear-gradient(to left, #0056b3, #0056b3);
     border: none;
-    border-radius: 20px;
+    border-radius: 8px;
     color: white;
     padding: 10px;
     cursor: pointer;
@@ -41,11 +41,11 @@
   }
   
   .Recuperar-content .btn-close {
-    background-color: #f44336;
+    background-color:  #dc3545;
     color: white;
     padding: 10px;
     border: none;
-    border-radius: 20px;
+    border-radius: 8px;
     margin-top: 10px;
     cursor: pointer;
     width: 100%;

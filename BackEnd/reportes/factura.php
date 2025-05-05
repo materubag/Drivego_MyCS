@@ -4,7 +4,8 @@ header("Access-Control-Allow-Origin: " . FRONT_URL);
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
-require "../fpdf/code128.php";
+require __DIR__ . '/../vendor/autoload.php';
+require_once '../fpdf/code128.php';
 require_once '../bd.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
@@ -17,7 +18,7 @@ $id_reserva = $data['id_reserva'];
 $stmt = $conn->prepare("SELECT r.ced_usu_res, r.nom_usu_res, r.matricula_veh, r.fec_res, r.fec_dev, r.tar_adi, r.des_dev, v.precio_veh, v.mar_veh, v.mod_veh
                         FROM reservas r
                         JOIN vehiculos v ON r.matricula_veh = v.mat_veh
-                        WHERE r.id_res = ?");
+                        WHERE r.id_res = ? AND r.met_pag IS NOT NULL");
 $stmt->execute([$id_reserva]);
 $reserva = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -41,7 +42,7 @@ $fecha1 = new DateTime($fechaReserva);
 $fecha2 = new DateTime($fechaDevolucion);
 $interval = $fecha1->diff($fecha2);
 $diasAlquiler = $interval->days;
-$costoAlquiler = $precioVehiculo * $diasAlquiler;
+$costoAlquiler = $precioVehiculo;
 $costoTotal = $costoAlquiler + $tarifaAdicional;
 $iva = $costoTotal * 0.15;
 $totalConIva = $costoTotal + $iva;
@@ -67,7 +68,7 @@ $pdf->Cell(150, 9, iconv("UTF-8", "ISO-8859-1", "Dirección Av. Av. Los Chasquis
 $pdf->Ln(5);
 $pdf->Cell(150, 9, iconv("UTF-8", "ISO-8859-1", "Teléfono: 0939830949"), 0, 0, 'L');
 $pdf->Ln(5);
-$pdf->Cell(150, 9, iconv("UTF-8", "ISO-8859-1", "Email: anabelJaque@gmail.com"), 0, 0, 'L');
+$pdf->Cell(150, 9, iconv("UTF-8", "ISO-8859-1", "Email: proyectodrivego@gmail.com"), 0, 0, 'L');
 $pdf->Ln(10);
 
 $pdf->SetFont('Arial', 'B', 10);
@@ -136,7 +137,7 @@ $pdf->Ln(8);
 
 $pdf->SetTextColor(39, 39, 51);
 $pdf->Cell(90, 7, iconv("UTF-8", "ISO-8859-1", "Venta de vehículo"), 'L', 0, 'C');
-$pdf->Cell(32, 7, iconv("UTF-8", "ISO-8859-1", "$diasAlquiler días"), 'L', 0, 'C');
+$pdf->Cell(32, 7, iconv("UTF-8", "ISO-8859-1", "1"), 'L', 0, 'C');
 $pdf->Cell(32, 7, iconv("UTF-8", "ISO-8859-1", "$" . number_format($precioVehiculo, 2)), 'L', 0, 'C');
 $pdf->Cell(32, 7, iconv("UTF-8", "ISO-8859-1", "$" . number_format($costoAlquiler, 2)), 'LR', 0, 'C');
 $pdf->Ln(7);

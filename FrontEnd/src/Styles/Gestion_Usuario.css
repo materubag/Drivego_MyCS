@@ -1,0 +1,142 @@
+.card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.25rem;/*20px*/
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem auto; /**/
+  max-width: 100%;/**/
+  margin-bottom: 20px;
+  margin-left: 300px;
+  margin-right: 20px;
+}
+
+.card-header {
+  /*margin-left: 10px;*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;/*20px*/
+}
+
+.card-tit {
+  margin-left: 10px;
+  font-size: clamp(1.25rem, 2vw, 2rem); /*24px;*/
+  font-weight: bold;
+  margin: 0;
+}
+
+.button {
+  padding: 0.625rem 1.25rem;/*10px 20px;*/
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: clamp(0.875rem, 1vw, 1rem);/*14px;*/
+}
+
+.btn-nu {
+  width: 100%;/*200px*/
+  max-width: 200px;/**/
+  height: 55px;
+  background-image: linear-gradient(to left, #050a30, #050a30);
+  color: white;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-nu:hover {
+  background-color: #5cb6f9;
+  transform: scale(1.05);
+}
+
+.card-conte {
+  overflow-x: auto;
+}
+
+.table-cont {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-head {
+  background-color: #f5f5f5;
+  padding: 0.625rem;/*10px*/
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 2px solid #ddd;
+}
+
+.table-cell {
+  padding: 0.625rem;/*10px*/
+  border-bottom: 1px solid #ddd;
+}
+
+.btn-activs {
+  display: flex;
+  gap: 1.25rem;/*20px*/
+  padding: 0.625rem;
+}
+
+.btn-acti {
+  padding:  0.75rem 0.625rem;/*12px 10px;*/
+  max-width: 150px;
+  height: 50px;
+  color: white;
+  background-image: linear-gradient(to left,#5cb6f9, #5cb6f9);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-acti:hover {
+  background-color: #f5f5f5;
+  color: white;
+  transform: scale(1.05);
+  border-radius: 10px;
+
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-nu {
+    max-width: 100%; /* Botones se adaptan */
+    width: auto;
+  }
+
+  .btn-activs {
+    gap: 0.625rem;
+  }
+
+  .btn-acti {
+    width: 100%; /* Botones ocupan todo el ancho */
+  }
+}
+
+@media (max-width: 480px) {
+  .card-tit {
+    font-size: clamp(1rem, 4vw, 1.5rem); /* Texto más pequeño en móviles */
+  }
+
+  .button {
+    font-size: 0.875rem;
+  }
+
+  .btn-acti {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+}

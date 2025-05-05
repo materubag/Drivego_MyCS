@@ -4,7 +4,9 @@ header("Access-Control-Allow-Origin: " . FRONT_URL);
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
-require('../fpdf/fpdf.php');
+
+require __DIR__ . '/../vendor/autoload.php';
+require_once '../fpdf/fpdf.php';
 require_once '../bd.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
@@ -34,7 +36,7 @@ $total_reportes = $result_count['total_reportes'];
 $sql = "SELECT r.id_res, r.nom_usu_res, r.matricula_veh, v.mar_veh, v.mod_veh, v.precio_veh, r.fec_res, r.fec_dev, r.tar_adi
         FROM reservas r
         INNER JOIN vehiculos v ON r.matricula_veh = v.mat_veh
-        WHERE r.fec_res BETWEEN :fecha_inicio AND :fecha_fin";
+        WHERE r.fec_res BETWEEN :fecha_inicio AND :fecha_fin AND r.met_pag IS NOT NULL";
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(':fecha_inicio', $fecha_inicio);
 $stmt->bindParam(':fecha_fin', $fecha_fin);
@@ -82,7 +84,6 @@ if (!$reservas) {
     $pdf->Cell(25, 10, 'Matricula', 1, 0, 'C', true);
     $pdf->Cell(25, 10, 'Marca', 1, 0, 'C', true);
     $pdf->Cell(25, 10, 'Modelo', 1, 0, 'C', true);
-    $pdf->Cell(15, 10, 'Dias', 1, 0, 'C', true);
     $pdf->Cell(25, 10, 'Valor Base', 1, 0, 'C', true);
     $pdf->Cell(25, 10, 'Valor Adic.', 1, 0, 'C', true);
     $pdf->Cell(25, 10, 'Total', 1, 1, 'C', true);
@@ -97,7 +98,7 @@ if (!$reservas) {
         $fecha_devolucion = new DateTime($reserva['fec_dev']);
         $dias = $fecha_reserva->diff($fecha_devolucion)->days;
     
-        $valor_base = $reserva['precio_veh'] * $dias;
+        $valor_base = $reserva['precio_veh'];
         $valor_adicional = $reserva['tar_adi'];
         $total = $valor_base + $valor_adicional;
     
@@ -107,14 +108,13 @@ if (!$reservas) {
         $pdf->Cell(25, 10, $reserva['matricula_veh'], 1, 0, 'C');
         $pdf->Cell(25, 10, $reserva['mar_veh'], 1, 0, 'C');
         $pdf->Cell(25, 10, $reserva['mod_veh'], 1, 0, 'C');
-        $pdf->Cell(15, 10, $dias, 1, 0, 'C');
         $pdf->Cell(25, 10, number_format($valor_base, 2), 1, 0, 'C');
         $pdf->Cell(25, 10, number_format($valor_adicional, 2), 1, 0, 'C');
         $pdf->Cell(25, 10, number_format($total, 2), 1, 1, 'C');
     }
     
     $pdf->SetFont('Arial', 'B', 10);
-    $pdf->Cell(170, 10, 'TOTAL GENERAL', 1, 0, 'R');
+    $pdf->Cell(155, 10, 'TOTAL GENERAL', 1, 0, 'R');
     $pdf->Cell(25, 10, number_format($total_general, 2), 1, 1, 'C');
 }
 
