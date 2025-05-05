@@ -109,4 +109,5 @@ $pdf->Cell(0, 10, '___________________________                    ______________
 $pdf->Cell(0, 10, 'EL VENDEDOR                                                EL COMPRADOR', 0, 1, 'C');
 
 $pdf->Output();
+
 ?>
