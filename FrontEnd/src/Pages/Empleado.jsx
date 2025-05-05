@@ -3,7 +3,7 @@ import "../Styles/Administrador.css";
 import { useNavigate } from "react-router-dom";
 import Reserva from "../Pages_Admin/Reserva";
 import Devolucion from "../Pages_Admin/Devolucion";
-import Facturacion from "../Pages_Admin/Facturacion";
+import Ventas from "../Pages_Admin/Ventas";
 import ModalConfirm from "../Modals/ModalConfirm";
 
 const Empleado = () => {
@@ -37,7 +37,7 @@ const Empleado = () => {
       case "devolucion":
         return <Devolucion />;
       case "facturacion":
-        return <Facturacion />;
+        return <Ventas />;
       default:
         return <Reserva />;
     }
