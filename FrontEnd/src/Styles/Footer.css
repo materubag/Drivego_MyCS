@@ -1,96 +1,178 @@
 .footer {
-    position: relative;
-    bottom: 0;
-    left: 0;
+
     width: 100%;
-    padding: 1rem 5%;
-    background: #cae8ff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+    padding: 2rem 0 0 0;
+    background: #deebf5;
+    color: #050a30;
     z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .footer-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    
+  }
+
+  .footer-section{
+    margin-bottom: 2rem;
   }
   
-  .logo {
-    font-size: 50px;
-    color: white;
-    font-weight: 700;
+  .logo-section {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
   }
   
   .logo img {
     height: 120px;
     width: auto;
+    transition: transform 0.3s ease;
   }
-  .ubicacion {
-      font-size: clamp(0.875rem, 1.5vw, 1rem);
-      color: #050a30;
-      display: flex;
-  
-      flex-direction: column;
-      padding: 0.5rem 0;
-      margin: 0;
-      }
-  
-  .ubicacion a{
-      display: block;
-      margin: 0.5rem 0;
-      min-height: 2rem;
-      text-decoration: none;
+
+  .lgo img:hover{
+    transform: scale(1.05);
   }
-  .social-media {
-    font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+
+  .info-section{
+    flex: 2;
+    min-width: 250px;
+    padding: 0 1 rem;
+  }
+
+  .info-section p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .section-title{
+    color: #050a30;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+
+  .section-title::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 80px;
+    height: 3px;
+    background-color: #050a30;
+  }
+
+  .ubicacion, .contacto, .email{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.7rem;
+    font-size: 0.95rem;
+  }
+
+  .ubicacion i, .contacto i, .email i{
+    margin-right: 0.7rem;
+    min-width: 20px;
+    color: #0066cc;
+  }
+
+  .social-section {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .social-links{
     display: flex;
     flex-direction: column;
-    padding: 0.5rem 0;
+
   }
-  .social-media a {
+
+  .social-link{
     display: flex;
-    position: center;
-    color: #050a30;
+    align-items: center;
+    margin-bottom: 0.7rem;
     text-decoration: none;
-    font-size: 1.6em;
-    margin: 0.5rem 0;
+    color: #050a30;
+    transition: color 0.3s ease;
   }
-  .social-media a i {
-      margin-right: 1rem; 
-    }
-  .social-media a:last-child {
-    margin-right: 0;
-    position: center;
+  .social-link:hover{
+    color: #0066cc;
+  }
+
+  .social-link i{
+    font-size: 1.2rem;
+    margin-right: 0.7rem;
+    min-width: 25px;
   }
   
-  .derechos {
-    color: #050a30;
-    text-align: right;
+  .footer-bottom{
+    width: 100%;
+    background-color: rgba(5, 10, 48, 0.1);
     padding: 1rem 0;
-    margin-top: 200px;
+    text-align: center;
+    margin-top: 1rem;
+
+  }
+
+  .derechos {
+    font-size: 0.9rem;
+    margin: 0;
   }
   
   @media screen and (max-width: 768px) {
-    .footer {
-        flex-direction: column;
-        text-align: center;
+    .footer-container {
+      flex-direction: column;
     }
-  
-    .derechos{
+    
+    .footer-section {
+      width: 100%;
+      padding: 0;
+      margin-bottom: 1.5rem;
+    }
+    
+    .logo-section {
+      justify-content: center;
+    }
+    
+    .info-section {
       text-align: center;
-      min-width: 100%;
+    }
+    
+    .section-title::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .ubicacion, .contacto, .email {
+      justify-content: center;
+    }
+    
+    .social-section {
+      align-items: center;
+      text-align: center;
+    }
+    
+    .social-links {
+      align-items: center;
     }
   }
   
   @media screen and (max-width: 480px) {
     .footer {
-        padding: 1rem;
+      padding-top: 1.5rem;
     }
-  
-    .ubicacion, .social-media {
-        width: 100%;
-        align-items: center;
+    
+    .logo img {
+      height: 100px;
     }
-  
-    .social-media a {
-        justify-content: center;
+    
+    .footer-section {
+      margin-bottom: 1rem;
     }
   }

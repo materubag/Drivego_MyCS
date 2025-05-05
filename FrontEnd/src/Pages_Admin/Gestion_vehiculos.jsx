@@ -23,7 +23,7 @@ const GestionVehiculos = () => {
 
   const handleDeleteClick = (veh) => {
     if (window.confirm("¿Estás seguro de que deseas eliminar este vehículo?")) {
-      fetch(`${BACK_URL}/Borrar_vehiculo.php`, {
+      fetch(`${BACK_URL}/Borrar_Vehiculo.php`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ mat_veh: veh.mat_veh }),
@@ -51,7 +51,7 @@ const GestionVehiculos = () => {
       formData.append(key, value);
     });
   
-    fetch(`${BACK_URL}/Editar_veh.php`, {
+    fetch(`${BACK_URL}/Editar_Vehiculos.php`, {
       method: "POST",
       body: formData, 
     })
@@ -76,7 +76,7 @@ const GestionVehiculos = () => {
   
 
   useEffect(() => {
-    fetch(`${BACK_URL}/Ver_vehiculos.php`)
+    fetch(`${BACK_URL}/Ver_Vehiculos.php`)
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {

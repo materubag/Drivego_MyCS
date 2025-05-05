@@ -4,7 +4,9 @@ header("Access-Control-Allow-Origin: " . FRONT_URL);
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
+
 require __DIR__ . '/../vendor/autoload.php';
+
 require_once '../bd.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
