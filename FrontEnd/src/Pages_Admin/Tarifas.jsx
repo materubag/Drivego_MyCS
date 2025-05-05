@@ -16,7 +16,7 @@ const Tarifas = () => {
       try {
         setIsLoading(true);
         const response = await axios.get(
-          BACK_URL+"/Mostra_Veh.php"
+          BACK_URL+"/Mostrar_Veh.php"
         );
         if (response.data.status) {
           setVehiculos(response.data.data);
