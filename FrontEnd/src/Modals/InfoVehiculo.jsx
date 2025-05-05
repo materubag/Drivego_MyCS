@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../Styles/InfoVehiculo.css";
 import ModalLogin from "../Modals/Login";
-import ModalReserva from "../Modals/Reserva";
+import ModalReserva from "../Modals/ModalReserva.jsx";
 import { BACK_URL } from "../config.js";
 import DefaultImg from "/public/Img_default.jpg";
 
