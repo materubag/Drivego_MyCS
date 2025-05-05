@@ -1,0 +1,91 @@
+.historial-container {
+    padding: clamp(10px, 3vw, 20px);
+    max-width: 800px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  
+  .historial-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: clamp(16px, 4vw, 24px);
+  }
+  
+  .historial-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .form-input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .submit-button {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .submit-button.loading {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+  
+  .error {
+    color: red;
+    font-size: 14px;
+  }
+  
+  .reservas-list {
+    margin-top: 20px;
+  }
+  
+  .reserva-item {
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    background: #f9f9f9;
+  }
+  
+  .reserva-item summary {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .reserva-detalles {
+    margin-top: 10px;
+    padding: 10px;
+    background: white;
+    
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .reserva-detalles p {
+    margin: 4px 0;
+    color: black;
+  }
+  
+  .vehiculo-imagen {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }

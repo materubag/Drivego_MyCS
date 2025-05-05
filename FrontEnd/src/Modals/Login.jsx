@@ -2,13 +2,18 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Styles/Login.css";
 import axios from "axios";
-import { BACK_URL } from "../config.js";
+import Registro from "../Modals/RegistrarSesion.jsx";
+import Recuperar from "../Modals/RecuperarContraseña.jsx";
+import CambiarContraseña from "../Modals/CambiarContraseña.jsx";
+import {BACK_URL} from "../config.js";
 
 const Login = ({ closeModal }) => {
   const [correo_usuario, setCorreo] = useState("");
   const [contrasena, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const [showForgotPasswordModal, setShowForgotPasswordModal] = useState(false);
+  const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -17,10 +22,14 @@ const Login = ({ closeModal }) => {
     };
   }, []);
 
+  const toggleForgotPasswordModal = () => {
+    setShowForgotPasswordModal(!showForgotPasswordModal);
+  };
+
   const handleLogin = async () => {
     try {
       const response = await axios.post(
-        BACK_URL + "/Login.php",
+        BACK_URL+"/login.php",
         {
           correo_usuario,
           contrasena,
@@ -32,20 +41,21 @@ const Login = ({ closeModal }) => {
         const userData = {
           nombre: response.data.nombre || "Usuario",
           rol: response.data.rol,
-          correo: correo_usuario,
+          correo: correo_usuario, 
         };
         localStorage.setItem("user", JSON.stringify(userData));
-
+      
         if (response.data.redirect === "si") {
           console.log("si abre");
+          toggleChangePasswordModal();
         } else if (response.data.rol === "Cliente") {
-          window.location.reload();
+            window.location.reload();
           closeModal();
         } else if (response.data.rol === "Administrador") {
           console.log("Inicio de sesión como Administrador");
           closeModal();
           navigate("/administrador");
-        } else if (response.data.rol === "Empleado") {
+        }else if (response.data.rol === "Empleado") {
           console.log("Inicio de sesión como Empleado");
           closeModal();
           navigate("/empleado");
@@ -59,11 +69,20 @@ const Login = ({ closeModal }) => {
     }
   };
 
+  const toggleRegisterModal = () => {
+    setShowRegisterModal(!showRegisterModal);
+  };
+
+  const toggleChangePasswordModal = () => {
+    setShowChangePasswordModal(!showChangePasswordModal);
+  };
+
   return (
     <>
       <div className="overlay" onClick={closeModal}></div>
       <div className="modal">
         <div className="modal-content">
+
           <button onClick={closeModal} className="close-button" >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -141,10 +160,18 @@ const Login = ({ closeModal }) => {
                   Regístrate
                 </a>
               </p>
+
             </div>
           </div>
         </div>
       </div>
+      {showForgotPasswordModal && (
+        <Recuperar closeModal={toggleForgotPasswordModal} />
+      )}
+      {showRegisterModal && <Registro closeModal={toggleRegisterModal} />}
+      {showChangePasswordModal && (
+        <CambiarContraseña closeModal={toggleChangePasswordModal} />
+      )}
     </>
   );
 };
