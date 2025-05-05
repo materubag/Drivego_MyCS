@@ -104,6 +104,7 @@ $pdf->SetFont('Arial', '', 12);
 $pdf->MultiCell(0, 10, "Ambas partes declaran estar de acuerdo con lo estipulado y firman el presente documento en señal de aceptación.");
 $pdf->Ln(10);
 
+
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(0, 10, '___________________________                    ___________________________', 0, 1, 'C');
 $pdf->Cell(0, 10, 'EL VENDEDOR                                                EL COMPRADOR', 0, 1, 'C');
