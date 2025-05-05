@@ -1,5 +1,5 @@
 import React from "react";
-import "..//Styles/Edit_usu_adm.css";
+import "../Styles/Edit_usu_adm.css";
 
 const Edit_usu_adm = ({ user, onSave, onCancel, setUser }) => {
   if (!user) return null;
@@ -40,7 +40,7 @@ const Edit_usu_adm = ({ user, onSave, onCancel, setUser }) => {
             >
               <option value="Administrador">Administrador</option>
               <option value="Cliente">Cliente</option>
-              <option value="Usuario">Usuario</option>
+              <option value="Usuario">Empleado</option>
             </select>
           </label>
         </form>

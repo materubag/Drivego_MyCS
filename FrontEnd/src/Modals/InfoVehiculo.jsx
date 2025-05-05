@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "../Styles/InfoVehiculo.css";
 import ModalLogin from "../Modals/Login";
+import ModalReserva from "../Modals/Reserva";
 import { BACK_URL } from "../config.js";
 import DefaultImg from "/public/Img_default.jpg";
 
 const InfoVehiculo = ({ vehiculo, onClose }) => {
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showReservaModal, setShowReservaModal] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
 
   useEffect(() => {
@@ -15,15 +17,16 @@ const InfoVehiculo = ({ vehiculo, onClose }) => {
     }
   }, []);
 
-  const handleVenta = () => {
+  const handleReservar = () => {
     if (!userInfo) {
       setShowLoginModal(true);
     } else {
-      alert("Función de venta deshabilitada temporalmente.");
+      setShowReservaModal(true);
     }
   };
 
   const closeLoginModal = () => setShowLoginModal(false);
+  const closeReservaModal = () => setShowReservaModal(false);
 
   if (!vehiculo) return null;
 
@@ -44,7 +47,7 @@ const InfoVehiculo = ({ vehiculo, onClose }) => {
               objectFit: "cover",
             }}
             onError={(e) => {
-              e.target.src = DefaultImg;
+              e.target.src = DefaultImg; // Usa la imagen importada si ocurre un error
             }}
           />
         </div>
@@ -86,8 +89,8 @@ const InfoVehiculo = ({ vehiculo, onClose }) => {
           </p>
         </div>
         <div className="modal-buttons">
-          <button className="alquilar-button" onClick={handleVenta}>
-            Comprar
+          <button className="alquilar-button" onClick={handleReservar}>
+            RESERVAR
           </button>
           <button className="close-button" onClick={onClose}>
             CERRAR
@@ -96,6 +99,13 @@ const InfoVehiculo = ({ vehiculo, onClose }) => {
       </div>
 
       {showLoginModal && <ModalLogin closeModal={closeLoginModal} />}
+      {showReservaModal && (
+        <ModalReserva
+          vehiculo={vehiculo}
+          userInfo={userInfo}
+          onClose={closeReservaModal}
+        />
+      )}
     </div>
   );
 };

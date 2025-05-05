@@ -23,7 +23,7 @@ const Reserva = () => {
   useEffect(() => {
     const fetchVehiculos = async () => {
       try {
-        const response = await fetch(BACK_URL + "/mostrar_veh.php");
+        const response = await fetch(BACK_URL + "/Mostrar_Veh.php");
         const data = await response.json();
         if (data.status) {
           setVehiculos(data.data);
