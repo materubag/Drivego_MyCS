@@ -14,7 +14,7 @@ $input = json_decode(file_get_contents(filename: 'php://input'), associative: tr
 if (isset($input['id_usu'])) {
     $id = $input["id_usu"];
 
-    $query="DELETE FROM Usuarios ";
+    $query="DELETE FROM Usuarios WHERE id_usu = :id;";
     $stmt=$conn->prepare($query);
     try{
         $stmt->execute(params:[
