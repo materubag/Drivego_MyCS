@@ -47,7 +47,7 @@ const Registro_veh_adm = ({ closeModal }) => {
 
     try {
       const response = await axios.post(
-        BACK_URL+"/Cargar_veh.php",
+        BACK_URL+"/Cargar_Vehiculo.php",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
