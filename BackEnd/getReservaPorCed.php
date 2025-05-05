@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                     v.img_veh
                 FROM reservas r
                 LEFT JOIN vehiculos v ON r.matricula_veh = v.mat_veh
-                WHERE r.ced_usu_res = ?"
+                WHERE r.ced_usu_res = ? AND r.met_pag IS NOT NULL"
             );
             $stmt->execute([$cedula]);
             $reservas = $stmt->fetchAll(PDO::FETCH_ASSOC);
