@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Styles/Login.css";
 import axios from "axios";
-import Registro from "../Modals/RegistrarSesion.jsx";
-import Recuperar from "../Modals/RecuperarContraseña.jsx";
-import CambiarContraseña from "../Modals/CambiarContraseña.jsx";
+import Registro from "./RegistrarSesion.jsx";
+import Recuperar from "./RecuperarContraseña.jsx";
+import CambiarContraseña from "./CambiarContraseña.jsx";
 import {BACK_URL} from "../config.js";
 
 const Login = ({ closeModal }) => {
@@ -14,6 +14,7 @@ const Login = ({ closeModal }) => {
   const navigate = useNavigate();
   const [showForgotPasswordModal, setShowForgotPasswordModal] = useState(false);
   const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -143,7 +144,7 @@ const Login = ({ closeModal }) => {
               </div>
             </div>
             <div className="login-forgot-password">
-              <a href="#" className="login-forgot-link">
+              <a href="#" className="login-forgot-link" onClick={toggleForgotPasswordModal}>
                 ¿Olvidaste la contraseña?
               </a>
             </div>
@@ -156,7 +157,7 @@ const Login = ({ closeModal }) => {
             <div className="login-register-container">
               <p className="login-register-text">
                 ¿No tienes cuenta? {" "}
-                <a href="#" className="login-register-link">
+                <a href="#" className="login-register-link" onClick={toggleRegisterModal}>
                   Regístrate
                 </a>
               </p>
