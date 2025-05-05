@@ -13,7 +13,6 @@ const Footer = () => {
 
       <div className='footer-section info-section'>
         <h3 className='section-title'> Sobre Nosotros</h3>
-        <p>Pagina dedicada a la venta de vehiculos de alta calidad</p>
         <div className='ubicacion'>
           <i className='fa-solid fa-location-dot'></i>
           <span>Ubicación: Av.Atahualpa y Victor Hugo</span>

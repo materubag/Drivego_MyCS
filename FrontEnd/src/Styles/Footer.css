@@ -68,6 +68,7 @@
     height: 3px;
     background-color: #050a30;
   }
+  
 
   .ubicacion, .contacto, .email{
     display: flex;
@@ -123,6 +124,12 @@
   .derechos {
     font-size: 0.9rem;
     margin: 0;
+    color: #000;
+  }
+  .pagos {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #000;
   }
   
   @media screen and (max-width: 768px) {
