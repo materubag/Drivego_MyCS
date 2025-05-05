@@ -51,7 +51,7 @@ const handleDeleteClick=(user)=>{
 
 };
   const handleSaveEdit = () => {
-    fetch(BACK_URL+"/Editar_usuarios.php", {
+    fetch(BACK_URL+"/Editar_Usuarios.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(editingUser),
@@ -74,7 +74,7 @@ const handleDeleteClick=(user)=>{
   };
 
   useEffect(() => {
-    fetch(BACK_URL+"/Ver_usuarios.php")
+    fetch(BACK_URL+"/Ver_Usuarios.php")
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {
