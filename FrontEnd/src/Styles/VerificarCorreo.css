@@ -1,0 +1,89 @@
+.verificar-correo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+  }
+  
+  .modal-verif {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .modal-cont-verif {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .let img {
+    width: 100px;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .input-container {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .input-container label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  .input-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .input-container input:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  .btn-verificar {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .btn-verificar:hover {
+    background-color: #0056b3;
+  }
+  
+  p {
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: red;
+  }
+  
+  p.green {
+    color: green;
+  }
+  

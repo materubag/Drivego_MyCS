@@ -5,7 +5,7 @@ header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
 require __DIR__ . '/../vendor/autoload.php';
-
+require_once '../fpdf/fpdf.php';
 require_once '../bd.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
@@ -47,61 +47,60 @@ $chasisVehiculo = limpiarTexto($reserva['chasis']);
 
 $pdf = new FPDF();
 $pdf->AddPage();
-
 $pdf->SetFont('Arial', 'B', 16);
-$pdf->Cell(0, 10, iconv('UTF-8', 'ISO-8859-1', 'CONTRATO DE COMPRAVENTA DE VEHÍCULO'),0,1,'C');
+$pdf->Cell(0, 10, iconv('UTF-8', 'ISO-8859-1', 'CONTRATO DE COMPRAVENTA DE VEHICULO'), 0, 1, 'C');
 $pdf->Ln(10);
 
 $pdf->SetFont('Arial', '', 12);
-$pdf->MultiCell(0, 10, "Conste por el presente documento el contrato de compraventa de vehículo, celebrado entre $nombreUsuario, identificado con número de cédula $cedulaUsuario, a quien en lo sucesivo se denominará EL COMPRADOR; y de otra parte la empresa DRIVE GO con sede en la Universidad Técnica de Ambato, a quien en lo sucesivo se denominará EL VENDEDOR, bajo las siguientes cláusulas:");
+$pdf->MultiCell(0, 10, "Conste por el presente documento el contrato de compraventa de vehiculo, celebrado entre $nombreUsuario, identificado con numero de cedula $cedulaUsuario, a quien en lo sucesivo se denominara EL COMPRADOR; y de otra parte la empresa DRIVE GO con sede en la Universidad Tecnica de Ambato, a quien en lo sucesivo se denominara EL VENDEDOR, bajo las siguientes clausulas:");
 $pdf->Ln(10);
 
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(0, 10, 'PRIMERO:', 0, 1, 'L');
 $pdf->SetFont('Arial', '', 12);
-$pdf->MultiCell(0, 10, "EL VENDEDOR declara ser legítimo propietario del vehículo usado, marca $marcaVehiculo, modelo $modeloVehiculo, año de fabricación $anioVehiculo, con tipo de transmisión $transmisionVehiculo, No. de chasis $chasisVehiculo y con placa No. $matriculaVehiculo.");
+$pdf->MultiCell(0, 10, "EL VENDEDOR declara ser legitimo propietario del vehiculo usado, marca $marcaVehiculo, modelo $modeloVehiculo, anio de fabricacion $anioVehiculo, con tipo de transmision $transmisionVehiculo, No. de chasis $chasisVehiculo y con placa No. $matriculaVehiculo.");
 $pdf->Ln(10);
 
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(0, 10, 'SEGUNDO:', 0, 1, 'L');
 $pdf->SetFont('Arial', '', 12);
-$pdf->MultiCell(0, 10, "EL VENDEDOR declara que el vehículo se encuentra en buen estado de funcionamiento mecánico y conservación general, sin perjuicio del uso normal y desgaste propio del tiempo.");
+$pdf->MultiCell(0, 10, "EL VENDEDOR declara que el vehiculo se encuentra en buen estado de funcionamiento mecanico y conservacion general, sin perjuicio del uso normal y desgaste propio del tiempo.");
 $pdf->Ln(10);
 
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(0, 10, 'TERCERO:', 0, 1, 'L');
 $pdf->SetFont('Arial', '', 12);
-$pdf->MultiCell(0, 10, "Por el presente contrato, EL VENDEDOR transfiere a título de compraventa el vehículo descrito a EL COMPRADOR, quien acepta adquirirlo en las condiciones mencionadas.");
+$pdf->MultiCell(0, 10, "Por el presente contrato, EL VENDEDOR transfiere a titulo de compraventa el vehiculo descrito a EL COMPRADOR, quien acepta adquirirlo en las condiciones mencionadas.");
 $pdf->Ln(10);
 
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(0, 10, 'CUARTO:', 0, 1, 'L');
 $pdf->SetFont('Arial', '', 12);
-$pdf->MultiCell(0, 10, "El precio de la compraventa asciende a la suma de PRECIO_FINAL dólares, que EL COMPRADOR se obliga a pagar a EL VENDEDOR en dinero en efectivo o mediante los medios acordados entre ambas partes.");
+$pdf->MultiCell(0, 10, "El precio de la compraventa asciende a la suma de PRECIO_FINAL dolares, que EL COMPRADOR se obliga a pagar a EL VENDEDOR en dinero en efectivo o mediante los medios acordados entre ambas partes.");
 $pdf->Ln(10);
 
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(0, 10, 'QUINTO:', 0, 1, 'L');
 $pdf->SetFont('Arial', '', 12);
-$pdf->MultiCell(0, 10, "La entrega del vehículo, junto con sus documentos (tarjeta de propiedad, matrícula y llaves), se realizará en la fecha de suscripción del presente contrato.");
+$pdf->MultiCell(0, 10, "La entrega del vehiculo, junto con sus documentos (tarjeta de propiedad, matricula y llaves), se realizara en la fecha de suscripcion del presente contrato.");
 $pdf->Ln(10);
 
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(0, 10, 'SEXTO:', 0, 1, 'L');
 $pdf->SetFont('Arial', '', 12);
-$pdf->MultiCell(0, 10, "Con la entrega del vehículo, EL VENDEDOR se desliga de toda responsabilidad civil, administrativa o penal derivada del uso posterior del bien por parte de EL COMPRADOR.");
+$pdf->MultiCell(0, 10, "Con la entrega del vehiculo, EL VENDEDOR se desliga de toda responsabilidad civil, administrativa o penal derivada del uso posterior del bien por parte de EL COMPRADOR.");
 $pdf->Ln(10);
 
 $pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(0, 10, 'SÉPTIMO:', 0, 1, 'L');
+$pdf->Cell(0, 10, 'SEPTIMO:', 0, 1, 'L');
 $pdf->SetFont('Arial', '', 12);
-$pdf->MultiCell(0, 10, "EL COMPRADOR manifiesta haber revisado el vehículo y aceptarlo en las condiciones en que se encuentra, renunciando a futuros reclamos por vicios o defectos ocultos.");
+$pdf->MultiCell(0, 10, "EL COMPRADOR manifiesta haber revisado el vehiculo y aceptarlo en las condiciones en que se encuentra, renunciando a futuros reclamos por vicios o defectos ocultos.");
 $pdf->Ln(10);
 
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(0, 10, 'OCTAVO:', 0, 1, 'L');
 $pdf->SetFont('Arial', '', 12);
-$pdf->MultiCell(0, 10, "Ambas partes declaran estar de acuerdo con lo estipulado y firman el presente documento en señal de aceptación.");
+$pdf->MultiCell(0, 10, "Ambas partes declaran estar de acuerdo con lo estipulado y firman el presente documento en senal de aceptacion.");
 $pdf->Ln(10);
 
 $pdf->SetFont('Arial', '', 12);

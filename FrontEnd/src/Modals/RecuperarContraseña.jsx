@@ -10,7 +10,7 @@ const RecuperarContraseña = ({ closeModal }) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        BACK_URL+"/Correo_cont.php",
+        BACK_URL+"/CorreoTemporal.php",
         { email },
         {
           headers: {

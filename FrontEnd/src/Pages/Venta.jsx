@@ -1,9 +1,9 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "../Styles/Alquiler.css";
-import Categorias from "../Components/Categorias";
-import ModalVehiculo from "./Info_veh";
+import "../Styles/Venta.css";
+import Categorias from "../Components/Categorias.jsx";
+import ModalVehiculo from "../Modals/InfoVehiculo.jsx";
 import { BACK_URL } from "../config.js";
 import DefaultImg from "/public/Img_default.jpg"; 
 

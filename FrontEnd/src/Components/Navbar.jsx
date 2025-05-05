@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ModalLogin from "../Modals/Login";
 import ModalUser from "../Modals/User";
 import "../Styles/Navbar.css";
 
 const linksCliente = [
   { name: "Home", href: "/home" },
-  { name: "Lugares", href: "/lugares" },
-  { name: "Alquiler", href: "/alquiler" },
+  { name: "Sucursales", href: "/oficinas" },
+  { name: "Vehiculos", href: "/venta" },
   { name: "Contactos", href: "/contactos" },
 ];
 
@@ -19,7 +19,8 @@ const linksAdmin = [
 ];
 
 const Navbar = () => {
-  const [activeLink, setActiveLink] = useState("/home");
+  const location = useLocation();
+  const [activeLink, setActiveLink] = useState("");
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showUserModal, setShowUserModal] = useState(false);
   const [user, setUser] = useState(null);
@@ -27,7 +28,7 @@ const Navbar = () => {
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     setUser(storedUser || null);
-  }, []);
+  }, [location.pathname]);
 
   const handleLinkClick = (href) => {
     setActiveLink(href);
@@ -70,6 +71,7 @@ const Navbar = () => {
             onClick={() => handleLinkClick(x.href)}
           >
             {x.name}
+            {activeLink === x.href && <span className="active-indicator"></span>}
           </Link>
         ))}
         {user ? (

@@ -7,6 +7,7 @@ import Report from "../Pages_Admin/Reportes";
 import Tariff from "../Pages_Admin/Tarifas";
 import ModalConfirm from "../Modals/ModalConfirm";
 
+
 const Administrador = () => {
   const [menuVisible, setMenuVisible] = useState(false);
   const [selectedComponent, setSelectedComponent] = useState(null);
@@ -65,9 +66,9 @@ const Administrador = () => {
   return (
     <div>
       <header className="header-admin">
-        <button className="bar-ad" onClick={toggleMenu}>
-          <i className={`fa-solid ${menuVisible ? "fa-times" : "fa-bars"}`}></i>
-        </button>
+      <button className="bar-ad" onClick={toggleMenu}>
+  <i className={`fa-solid ${menuVisible ? "fa-times" : "fa-bars"}`}></i>
+</button>
         <h1>Sistema de Administración</h1>
         <nav className="nav-admin">
           {user && (

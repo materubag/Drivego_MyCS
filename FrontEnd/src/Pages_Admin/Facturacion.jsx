@@ -58,7 +58,7 @@ const Facturacion= () => {
     setContratoId(null);
 
     try {
-      const response = await fetch(`${BACK_URL}/pdf_factura.php`, {
+      const response = await fetch(`${BACK_URL}reportes/factura.php`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id_reserva, cedula_usu }),
@@ -89,7 +89,7 @@ const Facturacion= () => {
     setFacturaId(null);
 
     try {
-      const response = await fetch(`${BACK_URL}/pdf_contrato.php`, {
+      const response = await fetch(`${BACK_URL}reportes/contrato.php`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ cedula_usu }),

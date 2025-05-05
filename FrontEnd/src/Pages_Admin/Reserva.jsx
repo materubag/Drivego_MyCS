@@ -13,7 +13,6 @@ const Reserva = () => {
   const [matriculaVehiculo, setMatriculaVehiculo] = useState("");
   const [vehiculos, setVehiculos] = useState([]);
   const [fechaReserva, setFechaReserva] = useState(null);
-  const [fechaDevolucion, setFechaDevolucion] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [vehiculoSeleccionado, setVehiculoSeleccionado] = useState(null);
   const [error, setError] = useState(null);
@@ -23,7 +22,7 @@ const Reserva = () => {
   useEffect(() => {
     const fetchVehiculos = async () => {
       try {
-        const response = await fetch(BACK_URL + "/mostrar_veh.php");
+        const response = await fetch(BACK_URL + "/Mostrar_Veh.php");
         const data = await response.json();
         if (data.status) {
           setVehiculos(data.data);
@@ -46,19 +45,6 @@ const Reserva = () => {
     setVehiculoSeleccionado(vehiculo);
   };
 
-  const calcularDias = () => {
-    if (fechaReserva && fechaDevolucion) {
-      const dias = Math.ceil((fechaDevolucion - fechaReserva) / (1000 * 60 * 60 * 24));
-      return dias;
-    }
-    return 0;
-  };
-
-  const validarFechas = () => {
-    const dias = calcularDias();
-    return dias >= 1 && dias <= 20;
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -66,15 +52,9 @@ const Reserva = () => {
       !cedulaUsuario ||
       !nombreUsuario ||
       !matriculaVehiculo ||
-      !fechaReserva ||
-      !fechaDevolucion
+      !fechaReserva
     ) {
       setError("Por favor, complete todos los campos.");
-      return;
-    }
-
-    if (!validarFechas()) {
-      setError("La reserva debe tener entre 1 y 20 días de diferencia.");
       return;
     }
 
@@ -89,7 +69,7 @@ const Reserva = () => {
         fechaReserva: fechaReserva.toISOString().split("T")[0],
       };
 
-      const response = await fetch(BACK_URL + "/reserva.php", {
+      const response = await fetch(BACK_URL + "/Reserva.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -107,8 +87,6 @@ const Reserva = () => {
         setNombreUsuario("");
         setMatriculaVehiculo("");
         setFechaReserva(null);
-        setFechaDevolucion(null);
-        setVehiculoSeleccionado(null);
       }
     } catch (error) {
       console.error("Error al conectar con el servidor:", error);
@@ -179,7 +157,6 @@ const Reserva = () => {
                 required
               />
             </div>
-
           </div>
 
           {vehiculoSeleccionado && (
@@ -197,26 +174,20 @@ const Reserva = () => {
                   <h3>{`${vehiculoSeleccionado.mar_veh} ${vehiculoSeleccionado.mod_veh}`}</h3>
                   <div className="detalles-grid">
                     <div className="detalle-item">
-                      <span>DÍAS SELECCIONADOS:</span>
-                      <strong>{calcularDias()}</strong>
-                    </div>
-                    <div className="detalle-item">
                       <span>TRANSMISIÓN:</span>
-                      <strong>{`${vehiculoSeleccionado.tip_trans_veh}`}</strong>
+                      <strong>{vehiculoSeleccionado.tip_trans_veh}</strong>
                     </div>
                     <div className="detalle-item">
                       <span>PASS/LUG:</span>
-                      <strong>{`${vehiculoSeleccionado.num_ocu_veh}`}</strong>
+                      <strong>{vehiculoSeleccionado.num_ocu_veh}</strong>
                     </div>
                     <div className="detalle-item">
                       <span>COMBUSTIBLE:</span>
-                      <strong>{`${vehiculoSeleccionado.combustible}`}</strong>
+                      <strong>{vehiculoSeleccionado.combustible}</strong>
                     </div>
-                    <div className="precio-total">
-                      <span>{`${vehiculoSeleccionado.precio_veh}`}</span> x Día
-                      <div className="total">
-                        ${(vehiculoSeleccionado.precio_veh * calcularDias()).toFixed(2)}
-                      </div>
+                    <div className="detalle-item">
+                      <span>AÑO:</span>
+                      <strong>{vehiculoSeleccionado.anio_veh}</strong>
                     </div>
                   </div>
                 </div>

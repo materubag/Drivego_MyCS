@@ -71,7 +71,7 @@ const Edit_veh_adm = ({ veh, onSave, onCancel, setVeh }) => {
               >
                 <option value="">Seleccione el estado</option>
                 <option value="Disponible">Disponible</option>
-                <option value="Alquilado">Alquilado</option>
+                <option value="Alquilado">Reservado</option>
                 <option value="Matenimiento">Mantenimiento</option>
                 <option value="Fuera">Fuera de servicio</option>
               </select>
