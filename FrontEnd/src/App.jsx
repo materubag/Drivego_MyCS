@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Oficinas from "./Pages/Oficinas";
 import Contactos from "./Pages/Contactos";
+import Venta from "./Pages/Venta";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/oficinas" element={<Oficinas />}/>
           <Route path="/contactos" element={<Contactos />}/>
+          <Route path="/venta" element={<Venta />}/>
         </Routes>
         <Footer />
       </div>
