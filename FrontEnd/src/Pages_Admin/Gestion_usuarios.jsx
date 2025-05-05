@@ -51,7 +51,7 @@ const handleDeleteClick=(user)=>{
 
 };
   const handleSaveEdit = () => {
-    fetch(BACK_URL+"/Editar_usuarios.php", {
+    fetch(BACK_URL+"/Editar_Usuarios.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(editingUser),
