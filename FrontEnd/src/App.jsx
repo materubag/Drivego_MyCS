@@ -7,6 +7,7 @@ import Footer from "./Components/Footer";
 import Oficinas from "./Pages/Oficinas";
 import Contactos from "./Pages/Contactos";
 import Venta from "./Pages/Venta";
+import VerificarCorreo from "./Pages/VerificarCorreo";
 import Administrador from "./Pages/Administrador";
 import Empleado from "./Pages/Empleado";
 
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/contactos" element={<Contactos />}/>
           <Route path="/venta" element={<Venta />}/>
           <Route path="/administrador" element={<Administrador />}/>
+          <Route path="/verificar" element={<VerificarCorreo />} />
           <Route path="/empleado" element={<Empleado />}/>
         </Routes>
         <Footer />
