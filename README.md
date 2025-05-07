@@ -1,6 +1,6 @@
 # 🚗 DriveGO
 
-**DriveGO** es una plataforma web de alquiler de vehículos que permite a los usuarios explorar, reservar y gestionar autos de manera eficiente y rápida.
+**DriveGO** es una plataforma web de venta de vehículos que permite a los usuarios explorar, reservar y gestionar autos de manera eficiente y rápida.
 
 ## 🧰 Tecnologías utilizadas
 
